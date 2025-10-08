@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/authors")
@@ -21,6 +22,11 @@ public class AuthorController {
     @GetMapping
     public ResponseEntity<List<AuthorResponseDto>> getAuthors(){
         return ResponseEntity.ok(authorService.getAuthors());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<AuthorEntity>> getAuthorById(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok(authorService.getAuthorById(id));
     }
 
     @PostMapping

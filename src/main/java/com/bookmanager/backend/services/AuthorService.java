@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
@@ -20,6 +21,10 @@ public class AuthorService {
                 .stream()
                 .map(author -> new AuthorResponseDto(author.getId(), author.getFirstName(), author.getLastName(), author.getBooks()))
                 .toList();
+    }
+    
+    public Optional<AuthorEntity> getAuthorById(Long id){
+        return authorRepository.findById(id);
     }
 
     public AuthorEntity postAuthor(AuthorRequestDto author){
