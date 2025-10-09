@@ -41,4 +41,13 @@ public class BookService {
     public Optional<BookEntity> getBookById(Long id){
         return bookRepository.findById(id);
     }
+
+    public String deleteBookById(Long id) {
+        if(bookRepository.existsById(id)) {
+            bookRepository.deleteById(id);
+            return "Livro deletado";
+        }
+
+        return "O livro de id " + id + " não existe";
+    }
 }
