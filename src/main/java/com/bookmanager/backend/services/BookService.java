@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -35,5 +36,9 @@ public class BookService {
         newBook.setIsbn(book.isbn());
         newBook.setAuthor(author);
         return bookRepository.save(newBook);
+    }
+
+    public Optional<BookEntity> getBookById(Long id){
+        return bookRepository.findById(id);
     }
 }
