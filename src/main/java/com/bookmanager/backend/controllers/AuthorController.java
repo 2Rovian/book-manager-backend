@@ -19,16 +19,19 @@ public class AuthorController {
     @Autowired
     private AuthorService authorService;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public ResponseEntity<List<AuthorResponseDto>> getAuthors(){
         return ResponseEntity.ok(authorService.getAuthors());
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<AuthorEntity>> getAuthorById(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok(authorService.getAuthorById(id));
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public ResponseEntity<AuthorEntity> postAuthor(@RequestBody AuthorRequestDto author){
         return ResponseEntity.status(HttpStatus.CREATED).body(authorService.postAuthor(author));
