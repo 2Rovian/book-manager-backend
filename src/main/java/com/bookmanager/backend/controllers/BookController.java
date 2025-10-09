@@ -19,7 +19,11 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping
-    public ResponseEntity<List<BookResponseDto>> getBooks(){
+    public ResponseEntity<List<BookResponseDto>> getBooks(@RequestParam(name = "name", required = false) String name){
+        if (name != null && !name.isEmpty()) {
+            return ResponseEntity.ok(bookService.getBookContainingName(name));
+        }
+
         return ResponseEntity.ok(bookService.getBooks());
     }
 

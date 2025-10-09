@@ -28,6 +28,10 @@ public class BookService {
                 .toList();
     }
 
+    public List<BookResponseDto> getBookContainingName(String name){
+        return bookRepository.findBookByNameContaining(name);
+    }
+
     public BookEntity postBook(BookRequestDto book){
         AuthorEntity author = authorRepository.findById(book.authorId())
                 .orElseThrow(() -> new RuntimeException("Author not found"));
