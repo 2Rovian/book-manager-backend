@@ -6,8 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_authors")
@@ -22,6 +21,6 @@ public class AuthorEntity {
     private String firstName;
     private String lastName;
 
-    @OneToMany(mappedBy = "author")
-    private Set<BookEntity> books = new HashSet<>();
+//    @OneToMany(mappedBy = "author")
+//    private Set<BookEntity> books = new HashSet<>();
 }

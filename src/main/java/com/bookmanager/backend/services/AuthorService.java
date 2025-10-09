@@ -19,7 +19,7 @@ public class AuthorService {
     public List<AuthorResponseDto> getAuthors() {
         return authorRepository.findAll()
                 .stream()
-                .map(author -> new AuthorResponseDto(author.getId(), author.getFirstName(), author.getLastName(), author.getBooks()))
+                .map(author -> new AuthorResponseDto(author.getId(), author.getFirstName(), author.getLastName()))
                 .toList();
     }
     
