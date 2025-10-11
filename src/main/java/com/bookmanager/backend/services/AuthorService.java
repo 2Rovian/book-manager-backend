@@ -27,6 +27,14 @@ public class AuthorService {
         return authorRepository.findById(id);
     }
 
+    public List<AuthorResponseDto> getAuthorByFirstName(String firstName) {
+        return authorRepository.findAuthorByFirstNameContaining(firstName);
+    }
+
+    public List<AuthorResponseDto> getAuthorByLastName(String lastName) {
+        return authorRepository.findAuthorByLastNameContaining(lastName);
+    }
+
     public AuthorEntity postAuthor(AuthorRequestDto author){
         var newAuthor = new AuthorEntity();
         newAuthor.setFirstName(author.firstName());

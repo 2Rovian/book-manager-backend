@@ -6,7 +6,10 @@ import com.bookmanager.backend.entities.AuthorEntity;
 import com.bookmanager.backend.entities.BookEntity;
 import com.bookmanager.backend.repositories.AuthorRepository;
 import com.bookmanager.backend.repositories.BookRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +43,16 @@ public class BookService {
         newBook.setIsbn(book.isbn());
         newBook.setAuthor(author);
         return bookRepository.save(newBook);
+    }
+
+    public ResponseEntity<?> putBook(Long id, BookRequestDto book) {
+        Optional<BookEntity> currentBook = bookRepository.findById(id);
+        if(currentBook.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("not found product");
+        }
+        var newBook = currentBook.get();
+        BeanUtils.copyProperties(book, newBook, "id");
+        return ResponseEntity.status(HttpStatus.OK).body(bookRepository.save(newBook));
     }
 
     public Optional<BookEntity> getBookById(Long id){

@@ -35,6 +35,14 @@ public class BookController {
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseEntity<?>> putBook(
+            @RequestBody BookRequestDto book,
+            @PathVariable(name = "id", required = true) Long id ){
+        return ResponseEntity.status(HttpStatus.CREATED).body(bookService.putBook(id, book));
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<BookEntity>> getBookById(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok(bookService.getBookById(id));

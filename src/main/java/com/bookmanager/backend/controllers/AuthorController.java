@@ -21,7 +21,17 @@ public class AuthorController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
-    public ResponseEntity<List<AuthorResponseDto>> getAuthors(){
+    public ResponseEntity<List<AuthorResponseDto>> getAuthors(
+            @RequestParam(required = false, name = "firstName") String firstName,
+            @RequestParam(required = false, name = "lastName") String lastName)
+    {
+        if (firstName != null && !firstName.isEmpty()) {
+            return ResponseEntity.ok(authorService.getAuthorByFirstName(firstName));
+        }
+        if (lastName != null && !lastName.isEmpty()) {
+            return ResponseEntity.ok(authorService.getAuthorByLastName(lastName));
+        }
+
         return ResponseEntity.ok(authorService.getAuthors());
     }
 
