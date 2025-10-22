@@ -63,5 +63,10 @@ cd backend
 docker-compose up --build
 ```
 
+### 🔌 Endereços de execução
+
+- Frontend: `http://localhost:5173`  
+- Backend: `http://localhost:8080`  
+
 ### 🔗 Repo do frontend
 👉 [BookManager Frontend](https://github.com/2Rovian/book-manager-frontend)
