@@ -33,26 +33,35 @@ Backend do projeto **BookManager**, desenvolvido com **Java Spring Boot** e **Po
 
 ## 🚀 Instalação
 
-### 1️⃣ Clone o repositório:
+### 1️⃣ Clone o repositório do frontend
+
+```
+git clone https://github.com/2rovian/book-manager-frontend.git
+```
+
+### 2️⃣ Clone o repositório do backend
 
 ```
 git clone https://github.com/2rovian/book-manager-backend.git
 ```
 
-### 2️⃣ Configurar variáveis de ambiente
+### 3️⃣ Renomeie os diretórios
 
-Configure o application.properties ou application.yml em src/main/resources com a configuração do banco:
 ```
-spring.datasource.url=jdbc:postgresql://localhost:5432/book-manager-db
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
+mv book-manager-frontend frontend
 ```
-### 3️⃣ Build e execução
-Se estiver usando Maven:
 ```
-mvn clean install
-mvn spring-boot:run
+mv book-manager-backend backend
 ```
 
-### 🔗 Conexão com o frontend
+### 4️⃣ Acesse o diretório do backend
+```
+cd backend
+```
+### 5️⃣ Rode os containers
+```
+docker-compose up --build
+```
+
+### 🔗 Repo do frontend
 👉 [BookManager Frontend](https://github.com/2Rovian/book-manager-frontend)
