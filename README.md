@@ -33,19 +33,24 @@ Backend do projeto **BookManager**, desenvolvido com **Java Spring Boot** e **Po
 
 ## 🚀 Instalação
 
-### 1️⃣ Clone o repositório do frontend
+### 1️⃣ Crie uma pasta para o projeto e acesse-a
+```
+mkdir book-manager && cd book-manager
+```
+
+### 2️⃣ Clone o repositório do frontend
 
 ```
 git clone https://github.com/2rovian/book-manager-frontend.git
 ```
 
-### 2️⃣ Clone o repositório do backend
+### 3️⃣ Clone o repositório do backend
 
 ```
 git clone https://github.com/2rovian/book-manager-backend.git
 ```
 
-### 3️⃣ Renomeie os diretórios
+### 4️⃣ Renomeie os diretórios
 
 ```
 mv book-manager-frontend frontend
@@ -54,11 +59,11 @@ mv book-manager-frontend frontend
 mv book-manager-backend backend
 ```
 
-### 4️⃣ Acesse o diretório do backend
+### 5️⃣ Acesse o diretório do backend
 ```
 cd backend
 ```
-### 5️⃣ Rode os containers
+### 6️⃣ Rode os containers 
 ```
 docker-compose up --build
 ```
